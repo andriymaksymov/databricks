@@ -23,3 +23,6 @@ jobs:
 
     - name:  Read a local variable
       run: echo ${{ env.LOCAL_VAR }}
+
+    - name:  Read a env variable
+      run: echo ${{ env.ENV_VAR }}
