@@ -14,12 +14,18 @@ jobs:
     
     environment: development
 
+    env:
+      ENV_VAR: ${{ vars.ENV_VAR }}
+
     steps:
     - name:  Read a variable
       run: echo ${{ vars.GLOBAL_VAR }}
 
-    - name:  GitHub staff
+    - name:  GitHub Repo
       run: echo ${{ github.repository }}        
+
+    - name:  GitHub Base
+      run: echo ${{ github.base_ref }}        
 
     - name:  Read a local variable
       run: echo ${{ env.LOCAL_VAR }}
