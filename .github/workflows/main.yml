@@ -11,6 +11,8 @@ env:
 jobs:
   one:
     runs-on: ubuntu-latest
+    
+    environment: development
 
     steps:
     - name:  Read a variable
