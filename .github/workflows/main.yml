@@ -1,0 +1,18 @@
+name: env variables
+
+on:
+  workflow-dispatch
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV_VAR = "jo"
+
+    steps:
+      - name:  Read a variable
+        run: echo ${{ vars.GLOBAL_APP }}
+
+      - name:  GitHub staff
+        run: echo ${{ github.repository }}        
