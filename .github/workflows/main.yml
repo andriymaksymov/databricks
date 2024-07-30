@@ -7,6 +7,7 @@ on:
 
 env:
   LOCAL_VAR: 'local var'
+  LOCAL_ENV_VAR: ${{ vars.ENV_VAR }}
 
 jobs:
   one:
@@ -32,3 +33,33 @@ jobs:
 
     - name:  Read a env variable
       run: echo ${{ env.ENV_VAR }}
+
+    - name:  Read a local env variable
+      run: echo ${{ env.LOCAL_ENV_VAR }}
+
+  two:
+    runs-on: ubuntu-latest
+    
+    environment: staging
+
+    env:
+      ENV_VAR: ${{ vars.ENV_VAR }}
+
+    steps:
+    - name:  Read a variable
+      run: echo ${{ vars.GLOBAL_VAR }}
+
+    - name:  GitHub Repo
+      run: echo ${{ github.repository }}        
+
+    - name:  GitHub Base
+      run: echo ${{ github.base_ref }}        
+
+    - name:  Read a local variable
+      run: echo ${{ env.LOCAL_VAR }}
+
+    - name:  Read a env variable
+      run: echo ${{ env.ENV_VAR }}
+
+    - name:  Read a local env variable
+      run: echo ${{ env.LOCAL_ENV_VAR }}
