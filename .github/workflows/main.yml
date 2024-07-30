@@ -3,7 +3,7 @@ name: env variables
 on:
   pull_request:
     branches:
-      - master
+      - main
       - staging
       - production
 
